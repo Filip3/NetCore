@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NetCore.API.Models;
+using NetCore.API.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,12 @@ namespace NetCore.API.Controllers
     public class PointsOfInterestController : Controller
     {
         private ILogger<PointsOfInterestController> _logger;
+        private IMailService _mailService;
 
-        public PointsOfInterestController(ILogger<PointsOfInterestController> logger)
+        public PointsOfInterestController(ILogger<PointsOfInterestController> logger, LocalMailService mailService)
         {
             _logger = logger;
+            _mailService = mailService;
         }
 
         [HttpGet("{cityId}/pointsofinterest")]
@@ -178,6 +181,9 @@ namespace NetCore.API.Controllers
                 return NotFound();
 
             resultCity.PointsOfInterest.Remove(pointOfInterestForDeleting);
+
+            _mailService.Send("Point of interest deleted.",
+                $"Point of interest {pointOfInterestForDeleting.Name} with id {pointOfInterestForDeleting.Id} was deleted.");
 
             return NoContent();
         }

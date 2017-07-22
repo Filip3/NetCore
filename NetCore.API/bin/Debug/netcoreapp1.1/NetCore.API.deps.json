@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "539fdd300c3cd21b9ad8753336002fa36a440947"
+    "signature": "76e9c6358c22aaac8c2667f077f087ada1ea8e51"
   },
   "compilationOptions": {
     "defines": [
@@ -27,6 +27,7 @@
           "Microsoft.AspNetCore": "1.1.2",
           "Microsoft.AspNetCore.Mvc": "1.1.3",
           "Microsoft.AspNetCore.Mvc.Formatters.Xml": "1.1.3",
+          "Microsoft.Extensions.Configuration.FileExtensions": "2.0.0-preview2-final",
           "Microsoft.Extensions.Logging.Debug": "2.0.0-preview2-final",
           "Microsoft.NETCore.App": "1.1.2",
           "NLog.Extensions.Logging": "1.0.0-rtm-beta5"
@@ -71,7 +72,7 @@
         "dependencies": {
           "Microsoft.ApplicationInsights": "2.2.0",
           "Microsoft.AspNetCore.Hosting": "1.1.2",
-          "Microsoft.Extensions.Configuration": "1.1.2",
+          "Microsoft.Extensions.Configuration": "2.0.0-preview2-final",
           "Microsoft.Extensions.Configuration.Json": "1.1.2",
           "Microsoft.Extensions.DiagnosticAdapter": "1.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "2.0.0-preview2-final",
@@ -93,7 +94,7 @@
           "Microsoft.AspNetCore.Server.IISIntegration": "1.1.2",
           "Microsoft.AspNetCore.Server.Kestrel": "1.1.2",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.1.2",
-          "Microsoft.Extensions.Configuration.FileExtensions": "1.1.2",
+          "Microsoft.Extensions.Configuration.FileExtensions": "2.0.0-preview2-final",
           "Microsoft.Extensions.Configuration.Json": "1.1.2",
           "Microsoft.Extensions.Logging": "2.0.0-preview2-final",
           "Microsoft.Extensions.Logging.Console": "1.1.2",
@@ -134,7 +135,7 @@
       "microsoft.aspnetcore.cors/1.1.2": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Extensions": "1.1.2",
-          "Microsoft.Extensions.Configuration.Abstractions": "1.1.2",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.0-preview2-final",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0-preview2-final",
           "Microsoft.Extensions.Options": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01"
@@ -195,7 +196,7 @@
           "Microsoft.AspNetCore.Hosting.Abstractions": "1.1.2",
           "Microsoft.AspNetCore.Http.Extensions": "1.1.2",
           "Microsoft.AspNetCore.WebUtilities": "1.1.2",
-          "Microsoft.Extensions.FileProviders.Physical": "1.1.1",
+          "Microsoft.Extensions.FileProviders.Physical": "2.0.0-preview2-final",
           "Microsoft.Extensions.Logging.Abstractions": "2.0.0-preview2-final",
           "Microsoft.Extensions.Options": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01",
@@ -227,10 +228,10 @@
           "Microsoft.AspNetCore.Hosting.Server.Abstractions": "1.1.2",
           "Microsoft.AspNetCore.Http": "1.1.2",
           "Microsoft.AspNetCore.Http.Extensions": "1.1.2",
-          "Microsoft.Extensions.Configuration": "1.1.2",
+          "Microsoft.Extensions.Configuration": "2.0.0-preview2-final",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.1.2",
           "Microsoft.Extensions.DependencyInjection": "1.1.1",
-          "Microsoft.Extensions.FileProviders.Physical": "1.1.1",
+          "Microsoft.Extensions.FileProviders.Physical": "2.0.0-preview2-final",
           "Microsoft.Extensions.Logging": "2.0.0-preview2-final",
           "Microsoft.Extensions.Options": "2.0.0-preview2-final",
           "Microsoft.Extensions.PlatformAbstractions": "1.1.0",
@@ -251,9 +252,9 @@
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Server.Abstractions": "1.1.2",
           "Microsoft.AspNetCore.Http.Abstractions": "1.1.2",
-          "Microsoft.Extensions.Configuration.Abstractions": "1.1.2",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.0-preview2-final",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0-preview2-final",
-          "Microsoft.Extensions.FileProviders.Abstractions": "1.1.1",
+          "Microsoft.Extensions.FileProviders.Abstractions": "2.0.0-preview2-final",
           "Microsoft.Extensions.Logging.Abstractions": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01"
         },
@@ -267,7 +268,7 @@
       "microsoft.aspnetcore.hosting.server.abstractions/1.1.2": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "1.1.2",
-          "Microsoft.Extensions.Configuration.Abstractions": "1.1.2",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01"
         },
         "runtime": {
@@ -325,7 +326,7 @@
       "microsoft.aspnetcore.http.extensions/1.1.2": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "1.1.2",
-          "Microsoft.Extensions.FileProviders.Abstractions": "1.1.1",
+          "Microsoft.Extensions.FileProviders.Abstractions": "2.0.0-preview2-final",
           "Microsoft.Net.Http.Headers": "1.1.2",
           "NETStandard.Library": "2.0.0-preview2-25401-01",
           "System.Buffers": "4.3.0"
@@ -453,7 +454,7 @@
           "Microsoft.AspNetCore.ResponseCaching.Abstractions": "1.1.2",
           "Microsoft.AspNetCore.Routing": "1.1.2",
           "Microsoft.Extensions.DependencyModel": "1.1.2",
-          "Microsoft.Extensions.FileProviders.Abstractions": "1.1.1",
+          "Microsoft.Extensions.FileProviders.Abstractions": "2.0.0-preview2-final",
           "Microsoft.Extensions.Logging.Abstractions": "2.0.0-preview2-final",
           "Microsoft.Extensions.PlatformAbstractions": "1.1.0",
           "NETStandard.Library": "2.0.0-preview2-25401-01",
@@ -556,7 +557,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Razor.Runtime": "1.1.2",
           "Microsoft.Extensions.Caching.Memory": "1.1.2",
-          "Microsoft.Extensions.FileProviders.Physical": "1.1.1",
+          "Microsoft.Extensions.FileProviders.Physical": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01",
           "System.ComponentModel.TypeConverter": "4.3.0"
         },
@@ -572,7 +573,7 @@
           "Microsoft.AspNetCore.Mvc.Razor": "1.1.3",
           "Microsoft.AspNetCore.Routing.Abstractions": "1.1.2",
           "Microsoft.Extensions.Caching.Memory": "1.1.2",
-          "Microsoft.Extensions.FileSystemGlobbing": "1.1.1",
+          "Microsoft.Extensions.FileSystemGlobbing": "2.0.0-preview2-final",
           "Microsoft.Extensions.Primitives": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01"
         },
@@ -766,9 +767,9 @@
           "lib/netstandard1.3/Microsoft.Extensions.Caching.Memory.dll": {}
         }
       },
-      "microsoft.extensions.configuration/1.1.2": {
+      "microsoft.extensions.configuration/2.0.0-preview2-final": {
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "1.1.2",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01"
         },
         "runtime": {
@@ -778,7 +779,7 @@
           "lib/netstandard1.1/Microsoft.Extensions.Configuration.dll": {}
         }
       },
-      "microsoft.extensions.configuration.abstractions/1.1.2": {
+      "microsoft.extensions.configuration.abstractions/2.0.0-preview2-final": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01"
@@ -792,7 +793,7 @@
       },
       "microsoft.extensions.configuration.binder/1.1.2": {
         "dependencies": {
-          "Microsoft.Extensions.Configuration": "1.1.2",
+          "Microsoft.Extensions.Configuration": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01",
           "System.ComponentModel.TypeConverter": "4.3.0"
         },
@@ -805,7 +806,7 @@
       },
       "microsoft.extensions.configuration.environmentvariables/1.1.2": {
         "dependencies": {
-          "Microsoft.Extensions.Configuration": "1.1.2",
+          "Microsoft.Extensions.Configuration": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01"
         },
         "runtime": {
@@ -815,10 +816,10 @@
           "lib/netstandard1.3/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
         }
       },
-      "microsoft.extensions.configuration.fileextensions/1.1.2": {
+      "microsoft.extensions.configuration.fileextensions/2.0.0-preview2-final": {
         "dependencies": {
-          "Microsoft.Extensions.Configuration": "1.1.2",
-          "Microsoft.Extensions.FileProviders.Physical": "1.1.1",
+          "Microsoft.Extensions.Configuration": "2.0.0-preview2-final",
+          "Microsoft.Extensions.FileProviders.Physical": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01",
           "System.Threading.Thread": "4.3.0"
         },
@@ -831,8 +832,8 @@
       },
       "microsoft.extensions.configuration.json/1.1.2": {
         "dependencies": {
-          "Microsoft.Extensions.Configuration": "1.1.2",
-          "Microsoft.Extensions.Configuration.FileExtensions": "1.1.2",
+          "Microsoft.Extensions.Configuration": "2.0.0-preview2-final",
+          "Microsoft.Extensions.Configuration.FileExtensions": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01",
           "Newtonsoft.Json": "9.0.1",
           "System.Dynamic.Runtime": "4.3.0",
@@ -902,7 +903,7 @@
           "lib/netstandard1.1/Microsoft.Extensions.DiagnosticAdapter.dll": {}
         }
       },
-      "microsoft.extensions.fileproviders.abstractions/1.1.1": {
+      "microsoft.extensions.fileproviders.abstractions/2.0.0-preview2-final": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01"
@@ -916,7 +917,7 @@
       },
       "microsoft.extensions.fileproviders.composite/1.1.1": {
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Abstractions": "1.1.1",
+          "Microsoft.Extensions.FileProviders.Abstractions": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01"
         },
         "runtime": {
@@ -926,10 +927,10 @@
           "lib/netstandard1.0/Microsoft.Extensions.FileProviders.Composite.dll": {}
         }
       },
-      "microsoft.extensions.fileproviders.physical/1.1.1": {
+      "microsoft.extensions.fileproviders.physical/2.0.0-preview2-final": {
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Abstractions": "1.1.1",
-          "Microsoft.Extensions.FileSystemGlobbing": "1.1.1",
+          "Microsoft.Extensions.FileProviders.Abstractions": "2.0.0-preview2-final",
+          "Microsoft.Extensions.FileSystemGlobbing": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01",
           "System.IO.FileSystem.Watcher": "4.3.0"
         },
@@ -940,7 +941,7 @@
           "lib/netstandard1.3/Microsoft.Extensions.FileProviders.Physical.dll": {}
         }
       },
-      "microsoft.extensions.filesystemglobbing/1.1.1": {
+      "microsoft.extensions.filesystemglobbing/2.0.0-preview2-final": {
         "dependencies": {
           "NETStandard.Library": "2.0.0-preview2-25401-01"
         },
@@ -1017,7 +1018,7 @@
       },
       "microsoft.extensions.logging.console/1.1.2": {
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "1.1.2",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.0-preview2-final",
           "Microsoft.Extensions.Logging.Abstractions": "2.0.0-preview2-final",
           "NETStandard.Library": "2.0.0-preview2-25401-01"
         },
@@ -1067,7 +1068,7 @@
       },
       "microsoft.extensions.options.configurationextensions/1.1.2": {
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "1.1.2",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.0-preview2-final",
           "Microsoft.Extensions.Configuration.Binder": "1.1.2",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0-preview2-final",
           "Microsoft.Extensions.Options": "2.0.0-preview2-final",
@@ -3575,19 +3576,19 @@
       "path": "microsoft.extensions.caching.memory/1.1.2",
       "hashPath": "microsoft.extensions.caching.memory.1.1.2.nupkg.sha512"
     },
-    "microsoft.extensions.configuration/1.1.2": {
+    "microsoft.extensions.configuration/2.0.0-preview2-final": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-eK5BHx/pHLGGO/WDo7CS070MGgx3N7B/ORO/oKeS0qgCyv+ZAR47YWKXmG5aF+lIrAJd3uJjMTdTKgXTU2UDWw==",
-      "path": "microsoft.extensions.configuration/1.1.2",
-      "hashPath": "microsoft.extensions.configuration.1.1.2.nupkg.sha512"
+      "sha512": "sha512-RuOI/FcTwJdy85QXFGQl4R4YAvA+0qnW6Ui58WJT/IGFui+loMjr3B7o6LR9+AvoqZd/bYnn5N2JhVpLYwxQcQ==",
+      "path": "microsoft.extensions.configuration/2.0.0-preview2-final",
+      "hashPath": "microsoft.extensions.configuration.2.0.0-preview2-final.nupkg.sha512"
     },
-    "microsoft.extensions.configuration.abstractions/1.1.2": {
+    "microsoft.extensions.configuration.abstractions/2.0.0-preview2-final": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-I1BRk2OCjOondHFc0flHFMxLTbsOPQdB0CxexkZOHcAD1oAWC2KcpxvmmQ07kLUcYKbtSdtvPkm7YPdw8bdJ9Q==",
-      "path": "microsoft.extensions.configuration.abstractions/1.1.2",
-      "hashPath": "microsoft.extensions.configuration.abstractions.1.1.2.nupkg.sha512"
+      "sha512": "sha512-71mtagRC9ogVKZ3Yc1lKfG3JOtOoB5+NgSN9vOrQ+5V7sDyldOmubiBk73dViWRx+3YrsS0LeZ5wUCpTpf0dAg==",
+      "path": "microsoft.extensions.configuration.abstractions/2.0.0-preview2-final",
+      "hashPath": "microsoft.extensions.configuration.abstractions.2.0.0-preview2-final.nupkg.sha512"
     },
     "microsoft.extensions.configuration.binder/1.1.2": {
       "type": "package",
@@ -3603,12 +3604,12 @@
       "path": "microsoft.extensions.configuration.environmentvariables/1.1.2",
       "hashPath": "microsoft.extensions.configuration.environmentvariables.1.1.2.nupkg.sha512"
     },
-    "microsoft.extensions.configuration.fileextensions/1.1.2": {
+    "microsoft.extensions.configuration.fileextensions/2.0.0-preview2-final": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-QYnwsXY/cBRno3XrNvfuldcZpNS/Nl2vV2uJsNtRh1hMBHYU3dLwJ4G/bKCMHgVmY/XOInDZhQ2bWadcwo+Ouw==",
-      "path": "microsoft.extensions.configuration.fileextensions/1.1.2",
-      "hashPath": "microsoft.extensions.configuration.fileextensions.1.1.2.nupkg.sha512"
+      "sha512": "sha512-Sw71WxZPvjfMoqx2TfUClMv6fZwE0yOrrj63t0GZ/Wv1SnorRP3DaALRBZP1RTQC+yi0NU4/jlYRQoJXvqQ7Fg==",
+      "path": "microsoft.extensions.configuration.fileextensions/2.0.0-preview2-final",
+      "hashPath": "microsoft.extensions.configuration.fileextensions.2.0.0-preview2-final.nupkg.sha512"
     },
     "microsoft.extensions.configuration.json/1.1.2": {
       "type": "package",
@@ -3645,12 +3646,12 @@
       "path": "microsoft.extensions.diagnosticadapter/1.0.0",
       "hashPath": "microsoft.extensions.diagnosticadapter.1.0.0.nupkg.sha512"
     },
-    "microsoft.extensions.fileproviders.abstractions/1.1.1": {
+    "microsoft.extensions.fileproviders.abstractions/2.0.0-preview2-final": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Z/XGMFZ8IuTcd8j5D/77jnajN5ZEs/NCH+LZkMUKKW2d9rpg10VtPhDsvMwKNhI+kcdTE00G/obXUF7Ruuwqlg==",
-      "path": "microsoft.extensions.fileproviders.abstractions/1.1.1",
-      "hashPath": "microsoft.extensions.fileproviders.abstractions.1.1.1.nupkg.sha512"
+      "sha512": "sha512-BxEWRW+3mYccwhD0cT99dStKw6WtVQRXHqIl057ME8pqQuP7y9a3MiGlnWIeJIaxV06igxCvU0Ucr7NFOhbH2g==",
+      "path": "microsoft.extensions.fileproviders.abstractions/2.0.0-preview2-final",
+      "hashPath": "microsoft.extensions.fileproviders.abstractions.2.0.0-preview2-final.nupkg.sha512"
     },
     "microsoft.extensions.fileproviders.composite/1.1.1": {
       "type": "package",
@@ -3659,19 +3660,19 @@
       "path": "microsoft.extensions.fileproviders.composite/1.1.1",
       "hashPath": "microsoft.extensions.fileproviders.composite.1.1.1.nupkg.sha512"
     },
-    "microsoft.extensions.fileproviders.physical/1.1.1": {
+    "microsoft.extensions.fileproviders.physical/2.0.0-preview2-final": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-oZXTzE3DdBkLgJqIOttIuEyNjufkZnK0V3reCO6WAJlFx+qgZlI9Eoi5+NhhGoUbEayU0Iyw9NtSCQI1SF8knQ==",
-      "path": "microsoft.extensions.fileproviders.physical/1.1.1",
-      "hashPath": "microsoft.extensions.fileproviders.physical.1.1.1.nupkg.sha512"
+      "sha512": "sha512-bOQe7BToJfeSTmBGSgqotMgIyeGzkVOfJgiFH1LAiR2UAY/GwkD5UPJr2zyDVnCsUxrbIOyJzVsI9f6LLSV17A==",
+      "path": "microsoft.extensions.fileproviders.physical/2.0.0-preview2-final",
+      "hashPath": "microsoft.extensions.fileproviders.physical.2.0.0-preview2-final.nupkg.sha512"
     },
-    "microsoft.extensions.filesystemglobbing/1.1.1": {
+    "microsoft.extensions.filesystemglobbing/2.0.0-preview2-final": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aSnRFPBR2uHhhQgsUXaryw6BBYFGwIN/743L7lloxydcTTJylpSZjCjd8/w62e2xzyypCVa7fkc6IRzkUEIwyg==",
-      "path": "microsoft.extensions.filesystemglobbing/1.1.1",
-      "hashPath": "microsoft.extensions.filesystemglobbing.1.1.1.nupkg.sha512"
+      "sha512": "sha512-AB3Sv7jC2g0iGSnPsnxjTcaioWaUGc2B2zeAw/4ALGeQPIhQC7VG97IKe/T8Y4bOT5IZ57R3p6HNUaItrN3gxQ==",
+      "path": "microsoft.extensions.filesystemglobbing/2.0.0-preview2-final",
+      "hashPath": "microsoft.extensions.filesystemglobbing.2.0.0-preview2-final.nupkg.sha512"
     },
     "microsoft.extensions.globalization.cultureinfocache/1.1.2": {
       "type": "package",
