@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using NLog.Extensions.Logging;
 using NetCore.API.Services;
 using Microsoft.Extensions.Configuration;
+using NetCore.API.Entites;
+using Microsoft.EntityFrameworkCore;
 
 namespace NetCore.API
 {
@@ -23,7 +25,8 @@ namespace NetCore.API
         {
             var builder = new ConfigurationBuilder().SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appSettings.json", optional:false, reloadOnChange:true )
-                .AddJsonFile($"appSettings.{env.EnvironmentName}.json", optional:true, reloadOnChange:true );
+                .AddJsonFile($"appSettings.{env.EnvironmentName}.json", optional:true, reloadOnChange:true )
+                .AddEnvironmentVariables();
 
             Configuration = builder.Build();
         }
@@ -49,10 +52,13 @@ namespace NetCore.API
 #else
             services.AddTransient<IMailService, CloudMailService>();
 #endif
+            var connectionString = Startup.Configuration["connectionStrings:cityInfoDBConnectionString"];
+            // by default it will registered with a scoped lifetime
+            services.AddDbContext<CityInfoContext>(o => o.UseSqlServer(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, CityInfoContext cityInfoContext)
         {
             loggerFactory.AddConsole();
 
@@ -69,6 +75,8 @@ namespace NetCore.API
             {
                 app.UseExceptionHandler();
             }
+
+            cityInfoContext.EnsureSeedDataForContext();
 
             app.UseStatusCodePages();
 
