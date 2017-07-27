@@ -15,11 +15,13 @@ namespace NetCore.API.Controllers
     {
         private ILogger<PointsOfInterestController> _logger;
         private IMailService _mailService;
+        private ICityInfoRepository _repository;
 
-        public PointsOfInterestController(ILogger<PointsOfInterestController> logger, LocalMailService mailService)
+        public PointsOfInterestController(ILogger<PointsOfInterestController> logger, LocalMailService mailService, ICityInfoRepository repository)
         {
             _logger = logger;
             _mailService = mailService;
+            _repository = repository;
         }
 
         [HttpGet("{cityId}/pointsofinterest")]
@@ -29,7 +31,8 @@ namespace NetCore.API.Controllers
             {
                 //throw new Exception("Sample Exception");
 
-                var resultCity = CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == cityId);
+                // var resultCity = CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == cityId);
+                var pointsOfInterestForCity = _repository.GetPointsOfInterestForCity(cityId);
 
                 if (resultCity == null)
                 {

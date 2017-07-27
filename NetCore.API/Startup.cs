@@ -55,6 +55,7 @@ namespace NetCore.API
             var connectionString = Startup.Configuration["connectionStrings:cityInfoDBConnectionString"];
             // by default it will registered with a scoped lifetime
             services.AddDbContext<CityInfoContext>(o => o.UseSqlServer(connectionString));
+            services.AddScoped<ICityInfoRepository, CityInfoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
