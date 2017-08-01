@@ -7,7 +7,7 @@ using NetCore.API.Entites;
 
 namespace NetCore.API.Services
 {
-    public class CityInfoRepository : ICityInfoRepository
+    public class CityInfoRepository : ICityInfoReposit  ory
     {
         private CityInfoContext _context;
 
@@ -16,12 +16,17 @@ namespace NetCore.API.Services
             _context = context;
         }
 
-        public IEnumerable<City> GetCities()
+        public bool CityExists(int cityId) 
+        {
+            return _context.Cities.Any(x => x.Id == cityId);
+        }
+
+        public IEnumerable<City> GetCities() 
         {
             return _context.Cities.OrderBy(c => c.Name).ToList();
         }
 
-        public City GetCity(int cityId, bool includePointsOfInterest)
+        public City GetCity(int cityId, bool includePointsOfInterest = false)
         {
             if (includePointsOfInterest)
                 return _context.Cities.Include(c => c.PointsOfinterest).Where(x => x.Id == cityId).FirstOrDefault();

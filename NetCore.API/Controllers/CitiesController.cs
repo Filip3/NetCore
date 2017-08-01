@@ -22,18 +22,7 @@ namespace NetCore.API.Controllers
         public IActionResult GetCities()
         {
             var cityEntites = _cityInfoRepository.GetCities();
-
-            var results = new List<CityWithOutPointsOfInterestDTO>();
-
-            foreach(var cityEntity in cityEntites)
-            {
-                results.Add(new CityWithOutPointsOfInterestDTO()
-                {
-                    Id = cityEntity.Id,
-                    Name = cityEntity.Name,
-                    Description = cityEntity.Description
-                });
-            }
+            var results = AutoMapper.Mapper.Map<IEnumerable<CityWithOutPointsOfInterestDTO>>(cityEntites);
 
             return Ok(results);
         }
@@ -48,40 +37,14 @@ namespace NetCore.API.Controllers
 
             if(includePointsOfInterest)
             {
-                var cityResult = new CityDTO()
-                {
-                    Id = city.Id,
-                    Description = city.Description,
-                    Name = city.Name
-                };
-
-                foreach(var pointOfInterest in city.PointsOfinterest)
-                {
-                    cityResult.PointsOfInterest.Add(new PointOfInterestDTO()
-                    {
-                        Id = pointOfInterest.Id,
-                        Name = pointOfInterest.Name,
-                        Description = pointOfInterest.Description
-                    });
-                }
+                var cityResult = AutoMapper.Mapper.Map<CityDTO>(city);
 
                 return Ok(cityResult);
             }
 
-            var cityWithOutPointsOfInterestDTO = new CityWithOutPointsOfInterestDTO()
-            {
-                Id = city.Id,
-                Description = city.Description,
-                Name = city.Name
-            };
+            var cityWithOutPointsOfInterestDTO = AutoMapper.Mapper.Map<CityWithOutPointsOfInterestDTO>(city);
 
             return Ok(cityWithOutPointsOfInterestDTO);
-            //var result = CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == id);
-
-            //if (result == null)
-            //    return NotFound();
-
-            //return Ok(result);
         }
     }
 }

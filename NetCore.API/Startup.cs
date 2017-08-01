@@ -14,6 +14,7 @@ using NetCore.API.Services;
 using Microsoft.Extensions.Configuration;
 using NetCore.API.Entites;
 using Microsoft.EntityFrameworkCore;
+using NetCore.API.Models;
 
 namespace NetCore.API
 {
@@ -80,6 +81,13 @@ namespace NetCore.API
             cityInfoContext.EnsureSeedDataForContext();
 
             app.UseStatusCodePages();
+            
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<City, Models.CityWithOutPointsOfInterestDTO>();
+                cfg.CreateMap<City, CityDTO>();
+                cfg.CreateMap<PointOfInterest, PointOfInterestDTO>();
+            });
 
             app.UseMvc();
 
