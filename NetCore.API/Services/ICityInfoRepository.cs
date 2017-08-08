@@ -13,5 +13,7 @@ namespace NetCore.API.Services
         City GetCity(int cityId, bool includePointsOfInterest);
         IEnumerable<PointOfInterest> GetPointsOfInterestForCity(int cityId);
         PointOfInterest GetPointOfInterestForCity(int cityId, int pointOfInterest);
+        void AddPointOfInterestForCity(int cityId, PointOfInterest pointOfInterest);
+        bool Save();
     }
 }

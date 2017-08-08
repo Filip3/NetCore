@@ -62,7 +62,7 @@ namespace NetCore.API.Controllers
             if (pointOfInterest == null)
                 return NotFound();
 
-            var pointOfInterestResult = AutoMapper.Mapper.Map<PointOfInterestDTO>();
+            var pointOfInterestResult = AutoMapper.Mapper.Map<PointOfInterestDTO>(pointOfInterest);
 
             return Ok(pointOfInterestResult);
         }
@@ -79,25 +79,18 @@ namespace NetCore.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var resultCity = CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == cityId);
-
-            if (resultCity == null)
+            if (!_cityInfoRepository.CityExists(cityId))
                 return NotFound();
 
-            // will be improved
-            var maxPointsOfInterest = CitiesDataStore.Current.Cities.SelectMany(c => c.PointsOfInterest).Max(x => x.Id);
+            var newPointOfInterest = AutoMapper.Mapper.Map<Entites.PointOfInterest>(pointOfInterest);
 
-            // can be improved with mapping, for example with AutoMapper
-            var newPointOfInterest = new PointOfInterestDTO()
-            {
-                Id = ++maxPointsOfInterest,
-                Name = pointOfInterest.Name,
-                Description = pointOfInterest.Description
-            };
+            _cityInfoRepository.AddPointOfInterestForCity(cityId, newPointOfInterest);
 
-            resultCity.PointsOfInterest.Add(newPointOfInterest);
+            if (!_cityInfoRepository.Save())
+                return StatusCode(500, "A problem has occured while handling your request.");
 
-            return CreatedAtRoute("GetPointOfInterest", new { cityId = cityId, id = newPointOfInterest.Id }, newPointOfInterest);
+            var createPointOfInterestToReturn = AutoMapper.Mapper.Map<Models.PointOfInterestDTO>(newPointOfInterest);
+            return CreatedAtRoute("GetPointOfInterest", new { cityId = cityId, id = createPointOfInterestToReturn.Id }, createPointOfInterestToReturn);
         }
 
         [HttpPut("{cityId}/pointsofinterest/{id}")]

@@ -7,13 +7,19 @@ using NetCore.API.Entites;
 
 namespace NetCore.API.Services
 {
-    public class CityInfoRepository : ICityInfoReposit  ory
+    public class CityInfoRepository : ICityInfoRepository
     {
         private CityInfoContext _context;
 
         public CityInfoRepository(CityInfoContext context)
         {
             _context = context;
+        }
+
+        public void AddPointOfInterestForCity(int cityId, PointOfInterest pointOfInterest)
+        {
+            var city = GetCity(cityId, false);
+            city.PointsOfinterest.Add(pointOfInterest);
         }
 
         public bool CityExists(int cityId) 
@@ -42,6 +48,11 @@ namespace NetCore.API.Services
         public IEnumerable<PointOfInterest> GetPointsOfInterestForCity(int cityId)
         {
             return _context.PointsOfInterest.Where(x => x.CityId == cityId).ToList();
+        }
+
+        public bool Save()
+        {
+            return (_context.SaveChanges() >= 0);
         }
     }
 }

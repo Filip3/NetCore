@@ -11002,15 +11002,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fma\\.nuget\\packages\\": {}
+    "C:\\Users\\Filip\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fma\\Documents\\GitHub\\NetCore\\NetCore.API\\NetCore.API.csproj",
+      "projectUniqueName": "C:\\Users\\Filip\\Documents\\GitHub\\NetCore\\NetCore.API\\NetCore.API.csproj",
       "projectName": "NetCore.API",
-      "projectPath": "C:\\Users\\fma\\Documents\\GitHub\\NetCore\\NetCore.API\\NetCore.API.csproj",
-      "outputPath": "C:\\Users\\fma\\Documents\\GitHub\\NetCore\\NetCore.API\\obj\\",
+      "projectPath": "C:\\Users\\Filip\\Documents\\GitHub\\NetCore\\NetCore.API\\NetCore.API.csproj",
+      "outputPath": "C:\\Users\\Filip\\Documents\\GitHub\\NetCore\\NetCore.API\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

@@ -87,6 +87,7 @@ namespace NetCore.API
                 cfg.CreateMap<City, Models.CityWithOutPointsOfInterestDTO>();
                 cfg.CreateMap<City, CityDTO>();
                 cfg.CreateMap<PointOfInterest, PointOfInterestDTO>();
+                cfg.CreateMap<Models.PointOfInterestForCreationDTO, Entites.PointOfInterest>();
             });
 
             app.UseMvc();
