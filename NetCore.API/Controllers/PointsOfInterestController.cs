@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace NetCore.API.Controllers
 {
@@ -17,7 +18,7 @@ namespace NetCore.API.Controllers
         private IMailService _mailService;
         private ICityInfoRepository _cityInfoRepository;
 
-        public PointsOfInterestController(ILogger<PointsOfInterestController> logger, LocalMailService mailService, ICityInfoRepository cityInfoRepository)
+        public PointsOfInterestController(ILogger<PointsOfInterestController> logger, IMailService mailService, ICityInfoRepository cityInfoRepository)
         {
             _logger = logger;
             _mailService = mailService;
@@ -105,59 +106,69 @@ namespace NetCore.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var resultCity = CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == cityId);
-
-            if (resultCity == null)
+            if (!_cityInfoRepository.CityExists(cityId))
                 return NotFound();
 
-            var pointOfInterestForUpdate = resultCity.PointsOfInterest.FirstOrDefault(x => x.Id == id);
+            var pointOfInterestForUpdate = _cityInfoRepository.GetPointOfInterestForCity(cityId, id);
 
             if (pointOfInterestForUpdate == null)
                 return NotFound();
 
-            pointOfInterestForUpdate.Name = pointOfInterest.Name;
-            pointOfInterestForUpdate.Description = pointOfInterest.Description;
+            AutoMapper.Mapper.Map(pointOfInterest, pointOfInterestForUpdate);
+
+            if (_cityInfoRepository.Save())
+                return StatusCode(500, "A problem has occured while handling your request.");
 
             return NoContent();
         }
 
         [HttpPatch("{cityId}/pointsofinterest/{id}")]
-        public IActionResult PartiallyUpdatePointOfInterest(int cityId, int id, [FromBody] JsonPatchDocument<PointOfInterestForUpdatingDTO> patchDocument)
+        public IActionResult PartiallyUpdatePointOfInterest(int cityId, int id,
+            [FromBody] JsonPatchDocument<PointOfInterestForUpdatingDTO> patchDoc)
         {
-            if (patchDocument == null)
-                return BadRequest();
-            
-            var resultCity = CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == cityId);
-
-            if (resultCity == null)
-                return NotFound();
-
-            var pointOfInterestForUpdate = resultCity.PointsOfInterest.FirstOrDefault(x => x.Id == id);
-
-            if (pointOfInterestForUpdate == null)
-                return NotFound();
-
-            var pointOfInterestToPatch = new PointOfInterestForUpdatingDTO()
+            if (patchDoc == null)
             {
-                Name = pointOfInterestForUpdate.Name,
-                Description = pointOfInterestForUpdate.Description
-            };
+                return BadRequest();
+            }
 
-            patchDocument.ApplyTo(pointOfInterestToPatch, ModelState);
-            
+            if (!_cityInfoRepository.CityExists(cityId))
+            {
+                return NotFound();
+            }
+
+            var pointOfInterestEntity = _cityInfoRepository.GetPointOfInterestForCity(cityId, id);
+            if (pointOfInterestEntity == null)
+            {
+                return NotFound();
+            }
+
+            var pointOfInterestToPatch = Mapper.Map<PointOfInterestForUpdatingDTO>(pointOfInterestEntity);
+
+            patchDoc.ApplyTo(pointOfInterestToPatch, ModelState);
+
             if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
-            
+            }
+
             if (pointOfInterestToPatch.Description == pointOfInterestToPatch.Name)
-                ModelState.AddModelError("Description", "The provided Name should ne different from the Description");
+            {
+                ModelState.AddModelError("Description", "The provided description should be different from the name.");
+            }
 
             TryValidateModel(pointOfInterestToPatch);
-            
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
 
-            pointOfInterestForUpdate.Name = pointOfInterestToPatch.Name;
-            pointOfInterestForUpdate.Description = pointOfInterestToPatch.Description;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            Mapper.Map(pointOfInterestToPatch, pointOfInterestEntity);
+
+            if (!_cityInfoRepository.Save())
+            {
+                return StatusCode(500, "A problem happened while handling your request.");
+            }
 
             return NoContent();
         }
@@ -165,17 +176,17 @@ namespace NetCore.API.Controllers
         [HttpDelete("{cityId}/pointofinterest/{id}")]
         public IActionResult DeletePointOfInterest(int cityId, int id)
         {
-            var resultCity = CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == cityId);
-
-            if (resultCity == null)
+            if (!_cityInfoRepository.CityExists(cityId))
                 return NotFound();
 
-            var pointOfInterestForDeleting = resultCity.PointsOfInterest.FirstOrDefault(x => x.Id == id);
-
+            var pointOfInterestForDeleting = _cityInfoRepository.GetPointOfInterestForCity(cityId, id);
             if (pointOfInterestForDeleting == null)
                 return NotFound();
 
-            resultCity.PointsOfInterest.Remove(pointOfInterestForDeleting);
+            _cityInfoRepository.DeletePointOfInterest(pointOfInterestForDeleting);
+
+            if(!_cityInfoRepository.Save())
+                return StatusCode(500, "A problem has occured while handling your request.");
 
             _mailService.Send("Point of interest deleted.",
                 $"Point of interest {pointOfInterestForDeleting.Name} with id {pointOfInterestForDeleting.Id} was deleted.");

@@ -84,10 +84,12 @@ namespace NetCore.API
             
             AutoMapper.Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<City, Models.CityWithOutPointsOfInterestDTO>();
+                cfg.CreateMap<City, CityWithOutPointsOfInterestDTO>();
                 cfg.CreateMap<City, CityDTO>();
                 cfg.CreateMap<PointOfInterest, PointOfInterestDTO>();
-                cfg.CreateMap<Models.PointOfInterestForCreationDTO, Entites.PointOfInterest>();
+                cfg.CreateMap<PointOfInterestForCreationDTO, PointOfInterest>();
+                cfg.CreateMap<PointOfInterestForUpdatingDTO, PointOfInterest>();
+                cfg.CreateMap<PointOfInterest, PointOfInterestForUpdatingDTO>();
             });
 
             app.UseMvc();

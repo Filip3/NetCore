@@ -27,6 +27,11 @@ namespace NetCore.API.Services
             return _context.Cities.Any(x => x.Id == cityId);
         }
 
+        public void DeletePointOfInterest(PointOfInterest pointOfInterest)
+        {
+            _context.PointsOfInterest.Remove(pointOfInterest);
+        }
+
         public IEnumerable<City> GetCities() 
         {
             return _context.Cities.OrderBy(c => c.Name).ToList();
